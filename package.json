@@ -13,14 +13,6 @@
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css,scss}": [
-      "prettier --write",
-      "git add"
-    ],
-    "src/**/*.{js,jsx,json}": "eslint --fix",
-    "src/**/*.{css,scss}": "stylelint --fix"
-  },
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
