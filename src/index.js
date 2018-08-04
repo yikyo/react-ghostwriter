@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Index = () => <div>Hello React!!!</div>;
+import Routes from './routes';
 
-ReactDOM.render(<Index />, document.getElementById('app'));
+ReactDOM.render(<Routes />, document.getElementById('app'));

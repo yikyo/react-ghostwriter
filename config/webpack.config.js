@@ -1,3 +1,4 @@
+const Webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const paths = require('./paths');
@@ -24,5 +25,6 @@ module.exports = {
       template: paths.indexHtml,
       filename: 'index.html',
     }),
+    new Webpack.HotModuleReplacementPlugin(),
   ],
 };
