@@ -12,10 +12,9 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: paths.src,
-        loader: require.resolve('babel-loader'),
-        options: {
-          cacheDirectory: true,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
         },
       },
     ],
@@ -27,4 +26,8 @@ module.exports = {
     }),
     new Webpack.HotModuleReplacementPlugin(),
   ],
+  stats: {
+    colors: true,
+  },
+  devtool: 'source-map',
 };
