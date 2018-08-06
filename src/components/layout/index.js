@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import Header from '../header';
 import Footer from '../footer';
-import Style from './style.scss';
 
 const Layout = ({ children }) => (
-  <div className={Style.container}>
+  <Fragment>
+    <Header />
     <main>{children}</main>
     <Footer name="yiKyo's blog" url="/" />
-  </div>
+  </Fragment>
 );
 
 Layout.propTypes = {
