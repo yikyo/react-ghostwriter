@@ -140,6 +140,10 @@ table {
   margin-bottom: 40px;
 }
 
+table tr {
+  border-bottom: 1px dotted #aeadad;
+}
+
 table th {
   padding: 0 10px 10px;
   text-align: left;
@@ -152,10 +156,6 @@ table td {
 table tbody > tr:nth-child(odd) > td,
 table tbody > tr:nth-child(odd) > th {
   background-color: #f7f7f3;
-}
-
-table tr {
-  border-bottom: 1px dotted #aeadad;
 }
 
 ::selection {

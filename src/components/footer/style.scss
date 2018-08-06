@@ -1,0 +1,33 @@
+@import '../../assets/scss/_color.scss';
+footer {
+  height: 265px;
+  overflow: auto;
+  color: #d3d3d3;
+  background: $secondary;
+  .copyright {
+    margin: 0;
+    font-size: 14px;
+    color: #656565;
+    text-align: center;
+    text-transform: uppercase;
+    a {
+      font-weight: 700;
+      color: #656565;
+      &:hover {
+        color: #fefefe;
+      }
+    }
+  }
+  .site-title-wrapper {
+    margin: 80px auto 35px;
+    .site-title a:hover,
+    .button-square:hover {
+      background: #121212;
+    }
+    .button-jump-top {
+      padding-top: 1px;
+      font-size: 23px;
+      line-height: 1.1;
+    }
+  }
+}

@@ -1,6 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+
+import { Layout } from '../../components';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -22,7 +24,7 @@ class AppContainer extends Component {
 
   render() {
     const { children } = this.props;
-    return children;
+    return <Layout>{children}</Layout>;
   }
 }
 
