@@ -1,3 +1,5 @@
-import GlobalContainer from './global-container';
+import AppContainer from './app-container';
 
-export { GlobalContainer };
+export { AppContainer };
+
+export default { AppContainer };
