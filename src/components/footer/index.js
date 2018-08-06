@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 import Style from './style.scss';
 
@@ -18,7 +20,7 @@ const Footer = ({ name, url }) => (
           className={`${Style.buttonSquare} ${Style.buttonJumpTop}`}
           to="/#"
         >
-          <i className="fa fa-angle-up" />
+          <FontAwesomeIcon icon={faAngleUp} />
         </Link>
       </div>
 
