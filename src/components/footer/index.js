@@ -26,7 +26,8 @@ const Footer = ({ name, url }) => (
         <Link to="https://github.com/roryg/ghostwriter">
           React Ghostwriter theme
         </Link>
-        By <Link to="http://yikyo.com">yiKyo</Link>
+        By
+        <Link to="http://yikyo.com">yiKyo</Link>
       </p>
     </div>
   </footer>
