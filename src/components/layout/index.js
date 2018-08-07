@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../header';
 import Footer from '../footer';
+import './style.scss';
 
 const Layout = ({ children }) => (
   <Fragment>
