@@ -40,7 +40,7 @@ class Posts extends Component {
     const { posts, pagination } = this.state;
     return (
       <Fragment>
-        <PostList data={posts} />
+        <PostList posts={posts} />
         <Pagination {...pagination} />
       </Fragment>
     );

@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import PostItem from '../posts-item';
 import Style from './style.scss';
 
-const PostList = ({ data }) => (
+const PostList = ({ posts }) => (
   <ol className={Style.postList}>
-    {data.map(elem => (
+    {posts.map(elem => (
       <PostItem key={elem.id} {...elem} />
     ))}
   </ol>
 );
 
 PostList.propTypes = {
-  data: PropTypes.arrayOf(
+  posts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       blogTitle: PropTypes.string.isRequired,
