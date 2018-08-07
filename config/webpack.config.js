@@ -82,6 +82,9 @@ module.exports = {
     }),
     new Webpack.HotModuleReplacementPlugin(),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
   stats: {
     colors: true,
   },
