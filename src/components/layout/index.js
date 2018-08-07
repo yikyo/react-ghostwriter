@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
   <Fragment>
     <Header />
     <main>{children}</main>
-    <Footer name="yiKyo's blog" url="/" />
+    <Footer name="yiKyo's blogs" url="/" />
   </Fragment>
 );
 

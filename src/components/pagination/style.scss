@@ -1,0 +1,22 @@
+@import '../../assets/scss/_color.scss';
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 70px auto 100px;
+  .newer-posts,
+  .older-posts {
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #fefefe;
+    text-transform: uppercase;
+    background: $primary;
+    &:hover {
+      background: $secondary;
+    }
+  }
+}

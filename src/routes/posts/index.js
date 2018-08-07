@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { PostList } from '../../components';
+import React, { Component, Fragment } from 'react';
+import { PostList, Pagination } from '../../components';
 
 class Posts extends Component {
   constructor() {
@@ -29,12 +29,21 @@ class Posts extends Component {
           date: '2018-08-07T01:47:34.000Z',
         },
       ],
+      pagination: {
+        next: 3,
+        prev: 1,
+      },
     };
   }
 
   render() {
-    const { posts } = this.state;
-    return <PostList data={posts} />;
+    const { posts, pagination } = this.state;
+    return (
+      <Fragment>
+        <PostList data={posts} />
+        <Pagination {...pagination} />
+      </Fragment>
+    );
   }
 }
 
