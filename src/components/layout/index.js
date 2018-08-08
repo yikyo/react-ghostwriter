@@ -5,15 +5,23 @@ import Header from '../header';
 import Footer from '../footer';
 import './style.scss';
 
-const Layout = ({ children }) => (
+const Layout = ({ siteTitle, siteLogo, navs, children }) => (
   <Fragment>
-    <Header />
+    <Header siteTitle={siteTitle} siteLogo={siteLogo} navs={navs} />
     <main>{children}</main>
-    <Footer name="yiKyo's blogs" url="/" />
+    <Footer siteTitle={siteTitle} />
   </Fragment>
 );
 
 Layout.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+  siteLogo: PropTypes.string.isRequired,
+  navs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

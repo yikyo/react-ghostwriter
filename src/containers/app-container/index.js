@@ -5,12 +5,24 @@ import axios from 'axios';
 import { Layout } from '../../components';
 
 class AppContainer extends Component {
-  static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]).isRequired,
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      siteTitle: "yiKyo's blogs",
+      siteLogo: '//casper.ghost.org/v1.0.0/images/ghost-logo.svg',
+      navs: [
+        {
+          title: 'Latest Post',
+          link: '/',
+        },
+        {
+          title: 'Browse Posts',
+          link: '/posts',
+        },
+      ],
+    };
+  }
 
   componentDidMount() {
     this.initAxios();
@@ -24,8 +36,15 @@ class AppContainer extends Component {
 
   render() {
     const { children } = this.props;
-    return <Layout>{children}</Layout>;
+    return <Layout {...this.state}>{children}</Layout>;
   }
 }
+
+AppContainer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
 
 export default AppContainer;

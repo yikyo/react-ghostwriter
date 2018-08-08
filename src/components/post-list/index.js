@@ -16,7 +16,6 @@ PostList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      blogTitle: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,

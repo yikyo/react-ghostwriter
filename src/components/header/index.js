@@ -1,48 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Style from './style.scss';
 
-const Header = () => (
+const Header = ({ siteTitle, siteLogo, navs }) => (
   <header>
     <div className={Style.container}>
       <div className={Style.siteTitleWrapper}>
-        <Link
-          className={Style.siteLogo}
-          title="yikyo's blog"
-          to="http://localhost:2368"
-        >
-          <img
-            src="https://casper.ghost.org/v1.0.0/images/ghost-logo.svg"
-            alt="yikyo's blog"
-          />
+        <Link className={Style.siteLogo} title={siteTitle} to="/">
+          <img src={siteLogo} alt={siteTitle} />
         </Link>
       </div>
 
       <ul className={Style.siteNav}>
-        <li className={Style.siteNavItem}>
-          <Link title="yikyo's blog" to="http://localhost:2368">
-            Latest Post
-          </Link>
-        </li>
-        <li className={Style.siteNavItem}>
-          <Link title="yikyo's blog" to="http://localhost:2368">
-            Browse Posts
-          </Link>
-        </li>
+        {navs.map(nav => (
+          <li className={Style.siteNavItem}>
+            <Link title={`${nav.title} | ${siteTitle}`} to={nav.link}>
+              {nav.title}
+            </Link>
+          </li>
+        ))}
 
         <li className={Style.siteNavItem}>
-          <Link title="Home | yikyo's blog" to="http://localhost:2368/">
+          <Link title={`Home | ${siteTitle}`} to="/">
             Home
           </Link>
         </li>
 
         <li className={Style.siteNavItem}>
-          <Link to="http://localhost:2368/rss">RSS</Link>
+          <Link title={`Rss | ${siteTitle}`} to="/rss">
+            RSS
+          </Link>
         </li>
       </ul>
     </div>
   </header>
 );
+
+Header.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+  siteLogo: PropTypes.string.isRequired,
+  navs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default Header;
