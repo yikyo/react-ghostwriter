@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -167,6 +169,10 @@ table tbody > tr:nth-child(odd) > th {
 ::-moz-selection {
   color: #000;
   background: #fff5b8;
+}
+
+:global(#app) {
+  height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
