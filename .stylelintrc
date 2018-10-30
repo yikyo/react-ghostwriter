@@ -1,6 +1,11 @@
 {
-  "extends": [
-    "stylelint-config-recommended", 
-    "stylelint-config-recess-order"
-  ]
+  "extends": ["stylelint-config-recommended", "stylelint-config-recess-order"],
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+  }
 }
