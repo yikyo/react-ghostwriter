@@ -1,5 +1,7 @@
 @import '../../assets/scss/_color.scss';
 header {
+  box-sizing: border-box;
+  height: 200px;
   padding: 100px 0 0;
   text-align: center;
   text-transform: uppercase;
