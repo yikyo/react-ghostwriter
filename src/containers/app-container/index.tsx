@@ -12,11 +12,11 @@ class AppContainer extends React.Component<TProps, IState> {
   };
 
   public componentDidMount() {
-    const { fetchSiteData, fetchSiteNvas } = this.props;
+    const { fetchSiteData, fetchSiteNavs } = this.props;
 
     fetchSiteData();
 
-    fetchSiteNvas();
+    fetchSiteNavs();
 
     AppService.initAxios();
 
@@ -51,7 +51,7 @@ const mapStateToProps = (state: TRootState) => ({
 
 const mapDispatchToProps = (dispatch: TDispatch) => ({
   fetchSiteData: dispatch.site.fetchSiteData,
-  fetchSiteNvas: dispatch.site.fetchSiteNavs,
+  fetchSiteNavs: dispatch.site.fetchSiteNavs,
 });
 
 type TProps = ReturnType<typeof mapStateToProps> &

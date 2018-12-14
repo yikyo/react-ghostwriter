@@ -9,12 +9,12 @@ import Posts from './posts';
 export default () => {
   return (
     <Router history={createBrowserHistory()}>
-      <AppContainer>
-        <Switch>
+      <Switch>
+        <AppContainer>
           <Route exact={true} path="/" component={Home} />
           <Route path="/posts" component={Posts} />
-        </Switch>
-      </AppContainer>
+        </AppContainer>
+      </Switch>
     </Router>
   );
 };
