@@ -1,18 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Style from './style.scss';
 
-const Footer = ({ siteTitle }) => (
+interface IProps {
+  title: string;
+}
+
+const Footer: React.SFC<IProps> = ({ title }) => (
   <footer>
     <div className={Style.container}>
       <div className={Style.siteTitleWrapper}>
         <h1 className={Style.siteTitle}>
-          <Link title={siteTitle} to="/">
-            {siteTitle}
+          <Link title={title} to="/">
+            {title}
           </Link>
         </h1>
 
@@ -32,9 +35,5 @@ const Footer = ({ siteTitle }) => (
     </div>
   </footer>
 );
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-};
 
 export default Footer;

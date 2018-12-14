@@ -1,3 +1,4 @@
+@import '../../assets/scss/_color.scss';
 header {
   padding: 100px 0 0;
   text-align: center;
@@ -7,10 +8,38 @@ header {
     margin: 0 auto;
   }
   .site-title-wrapper {
-    margin: 0 auto;
-    .site-logo {
-      img {
-        margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    .site-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      a {
+        display: block;
+        height: 30px;
+        padding: 0 10px;
+        line-height: 30px;
+        color: #fefefe;
+        background: #f03838;
+        &:hover {
+          background: #121212;
+        }
+      }
+    }
+    .icon-rss {
+      width: 30px;
+      height: 30px;
+      margin: 0 0 0 10px;
+      font-size: 16px;
+      line-height: 30px;
+      color: #fff;
+      text-align: center;
+      background: $primary;
+      &:hover {
+        background: #121212;
       }
     }
   }

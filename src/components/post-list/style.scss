@@ -1,6 +1,34 @@
+@import '../../assets/scss/_color.scss';
 .post-list {
   padding: 35px 0 0;
   margin: 80px 40px 0;
   list-style: none;
   border-top: 6px solid #303030;
+  .post {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px dotted $secondary;
+    &:first-child {
+      padding-top: 0;
+    }
+    .link {
+      display: flex;
+      align-items: center;
+      padding: 20px 5px;
+      color: #424242;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        padding: 20px 12px;
+        color: $primary;
+        background: #fcf5f5;
+      }
+    }
+    .title {
+      margin: 0 5px 0 0;
+      text-transform: none;
+    }
+    .date {
+      margin-left: 5px;
+    }
+  }
 }

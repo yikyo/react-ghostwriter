@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import Style from './style.scss';
 
-const Pagination = ({ prev, next }) => (
+interface IProps {
+  prev?: number;
+  next?: number;
+}
+
+const Pagination: React.SFC<IProps> = ({ prev, next }) => (
   <nav className={Style.pagination} role="navigation">
     {prev && (
       <Link className={Style.newerPosts} to={`/page/${prev}`} rel="prev">
@@ -18,10 +22,5 @@ const Pagination = ({ prev, next }) => (
     )}
   </nav>
 );
-
-Pagination.propTypes = {
-  prev: PropTypes.oneOfType([null, PropTypes.number]).isRequired,
-  next: PropTypes.oneOfType([null, PropTypes.number]).isRequired,
-};
 
 export default Pagination;

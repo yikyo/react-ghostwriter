@@ -3,6 +3,7 @@ const Webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const paths = require('./paths');
+const env = require('./env');
 
 module.exports = {
   entry: [paths.indexJs],
@@ -24,14 +25,16 @@ module.exports = {
             },
           },
           {
-            test: /\.(js|jsx)$/,
+            test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                cacheDirectory: true,
+            use: [
+              {
+                loader: require.resolve('ts-loader'),
+                options: {
+                  transpileOnly: true,
+                },
               },
-            },
+            ],
           },
           {
             test: /\.(css|scss)$/,
@@ -40,12 +43,13 @@ module.exports = {
                 loader: 'style-loader',
               },
               {
-                loader: 'css-loader',
+                loader: 'typings-for-css-modules-loader',
                 options: {
-                  importLoaders: 1,
                   modules: true,
+                  namedExport: true,
                   camelCase: true,
-                  localIdentName: '[local]--[hash:base64:5]',
+                  minimize: true,
+                  localIdentName: '[local]_[hash:base64:5]',
                 },
               },
               {
@@ -71,6 +75,13 @@ module.exports = {
               },
             ],
           },
+          {
+            exclude: [/\.(js|jsx)$/, /\.(ts|tsx)$/, /\.html$/, /\.json$/],
+            loader: require.resolve('file-loader'),
+            options: {
+              name: 'static/media/[name].[hash:8].[ext]',
+            },
+          },
         ],
       },
     ],
@@ -81,7 +92,11 @@ module.exports = {
       filename: 'index.html',
     }),
     new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.DefinePlugin(env()),
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+  },
   devServer: {
     historyApiFallback: true,
   },
