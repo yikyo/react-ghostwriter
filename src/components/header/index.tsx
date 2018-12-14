@@ -7,14 +7,13 @@ import Style from './style.scss';
 
 interface IProps {
   title: string;
-  logo: string;
   navs: Array<{
     title: string;
     link: string;
   }>;
 }
 
-const Header: React.SFC<IProps> = ({ title, logo, navs }) => (
+const Header: React.SFC<IProps> = ({ title, navs }) => (
   <header>
     <div className={Style.container}>
       <div className={Style.siteTitleWrapper}>

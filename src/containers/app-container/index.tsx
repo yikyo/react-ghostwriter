@@ -27,7 +27,7 @@ class AppContainer extends React.Component<TProps, IState> {
 
   public render() {
     const { isInit } = this.state;
-    const { title, logo, navs, children } = this.props;
+    const { title, navs, children } = this.props;
 
     if (!isInit) {
       return null;
@@ -35,7 +35,7 @@ class AppContainer extends React.Component<TProps, IState> {
 
     return (
       <Fragment>
-        <Header title={title} logo={logo} navs={navs} />
+        <Header title={title} navs={navs} />
         <main>{children}</main>
         <Footer title={title} />
       </Fragment>
@@ -44,7 +44,6 @@ class AppContainer extends React.Component<TProps, IState> {
 }
 
 const mapStateToProps = (state: TRootState) => ({
-  logo: state.site.logo,
   navs: state.site.navs,
   title: state.site.title,
 });

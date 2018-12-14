@@ -2,7 +2,6 @@ import { createModel } from '@rematch/core';
 import { SiteService } from '../services';
 
 export interface ISite {
-  logo: string;
   navs: Array<{
     title: string;
     link: string;
@@ -12,7 +11,6 @@ export interface ISite {
 
 export const site = createModel({
   state: {
-    logo: '',
     navs: [],
     title: '',
   },

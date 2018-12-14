@@ -6,7 +6,6 @@ export default class SiteService {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
-          logo: '//casper.ghost.org/v1.0.0/images/ghost-logo.svg',
           title: "yiKyo's blogs",
         });
       }, 1000);
