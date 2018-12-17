@@ -1,5 +1,5 @@
 import { createModel } from '@rematch/core';
-import { PostService } from '../services';
+import { IPostServiceListParams, PostService } from '../services';
 
 export interface IPost {
   list: Array<{
@@ -27,9 +27,8 @@ export const post = createModel({
   },
 
   effects: dispatch => ({
-    async fetch() {
-      const data = await PostService.list();
-
+    async fetch(payload: IPostServiceListParams) {
+      const data = await PostService.list(payload);
       dispatch.post.update(data);
     },
   }),

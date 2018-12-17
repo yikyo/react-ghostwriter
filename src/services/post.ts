@@ -1,37 +1,45 @@
+import qs from 'query-string';
 import { Api } from '../constants';
 import { Axios } from '../helpers';
 
+export interface IPostServiceListParams {
+  page: string;
+  limit: number;
+}
+
+interface IPostItem {
+  id: string;
+  title: string;
+  url: string;
+  published_at: string;
+}
+
 export default class PostService {
-  public static list = () => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve({
-          list: [
-            {
-              date: '2018-08-07T01:47:34.000Z',
-              id: 'd734e708-ebac-4b1f-bfbd-96f1cbf335f9',
-              link: '/welcome/',
-              title: 'Welcome to Ghost',
-            },
-            {
-              date: '2018-08-07T01:47:34.000Z',
-              id: 'd734e708-ebac-4b1f-bfbd-96f1cbf335f1',
-              link: '/welcome/',
-              title: 'Welcome to Ghost',
-            },
-            {
-              date: '2018-08-07T01:47:34.000Z',
-              id: 'd734e708-ebac-4b1f-bfbd-96f1cbf335f2',
-              link: '/welcome/',
-              title: 'Welcome to Ghost',
-            },
-          ],
-          pagination: {
-            next: 3,
-            prev: 1,
-          },
-        });
-      }, 1000);
+  public static list = (payload: IPostServiceListParams) => {
+    return Axios.get(`${Api.POSTS}&${qs.stringify(payload)}`).then(response => {
+      const result = { pagination: {}, list: [] };
+
+      if (response.data) {
+        if (response.data.meta && response.data.meta.pagination) {
+          result.pagination = {
+            next: response.data.meta.pagination.next,
+            prev: response.data.meta.pagination.prev,
+          };
+        }
+
+        if (response.data.posts && Array.isArray(response.data.posts)) {
+          result.list = response.data.posts.map((elem: IPostItem) => {
+            return {
+              date: elem.published_at,
+              id: elem.id,
+              link: elem.url,
+              title: elem.title,
+            };
+          });
+        }
+      }
+
+      return result;
     });
   };
 }
