@@ -9,6 +9,7 @@ module.exports = {
   entry: [paths.indexJs],
   output: {
     filename: 'static/js/bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
