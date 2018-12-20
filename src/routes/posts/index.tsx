@@ -18,7 +18,7 @@ class Posts extends Component<TProps> {
 
   public initList = () => {
     const {
-      fetch,
+      fetchList,
       location: { search },
     } = this.props;
 
@@ -30,22 +30,24 @@ class Posts extends Component<TProps> {
       }
     }
 
-    fetch(params);
+    fetchList(params);
   };
 
   public render() {
-    const { posts, pagination } = this.props;
-    return <PostList posts={posts} pagination={pagination} />;
+    const {
+      posts: { data, pagination },
+    } = this.props;
+
+    return <PostList posts={data} pagination={pagination} />;
   }
 }
 
 const mapStateToProps = (state: TRootState) => ({
-  pagination: state.post.pagination,
   posts: state.post.list,
 });
 
 const mapDispatchToProps = (dispatch: TDispatch) => ({
-  fetch: dispatch.post.fetch,
+  fetchList: dispatch.post.fetchList,
 });
 
 interface IRouteProps {

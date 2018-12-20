@@ -17,7 +17,7 @@ interface IPostItem {
 export default class PostService {
   public static list = (payload: IPostServiceListParams) => {
     return Axios.get(`${Api.POSTS}&${qs.stringify(payload)}`).then(response => {
-      const result = { pagination: {}, list: [] };
+      const result = { pagination: {}, data: [] };
 
       if (response.data) {
         if (response.data.meta && response.data.meta.pagination) {
@@ -28,7 +28,7 @@ export default class PostService {
         }
 
         if (response.data.posts && Array.isArray(response.data.posts)) {
-          result.list = response.data.posts.map((elem: IPostItem) => {
+          result.data = response.data.posts.map((elem: IPostItem) => {
             return {
               date: elem.published_at,
               id: elem.id,
@@ -41,5 +41,9 @@ export default class PostService {
 
       return result;
     });
+  };
+
+  public static getByTitle = () => {
+    return Axios.get(`${Api.POSTS_BY_TITLE}`);
   };
 }
