@@ -1,3 +1,4 @@
+export const header: string;
 export const container: string;
 export const siteTitleWrapper: string;
 export const siteTitle: string;

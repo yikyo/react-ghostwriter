@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const Header: React.SFC<IProps> = ({ title, navs }) => (
-  <header>
+  <header className={Style.header}>
     <div className={Style.container}>
       <div className={Style.siteTitleWrapper}>
         <h1 className={Style.siteTitle}>
