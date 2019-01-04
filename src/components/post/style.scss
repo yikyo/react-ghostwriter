@@ -1,5 +1,5 @@
 @import '../../assets/scss/_color.scss';
-.container {
+.article {
   margin: 0 40px;
   .content {
     a:hover {
@@ -7,7 +7,7 @@
       border-bottom: 1px dotted $primary;
     }
   }
-  header {
+  .header {
     padding: 0 0 80px;
     margin: 0 0 50px;
     text-align: center;
@@ -43,6 +43,17 @@
       margin: 40px auto 0;
       content: '';
       border-bottom: 1px dotted $secondary;
+    }
+  }
+  .footer {
+    margin-top: 5px;
+    .tags {
+      margin: 3px 0 0;
+      font-size: 14px;
+      color: $silver-chalice;
+      span {
+        font-weight: 600;
+      }
     }
   }
 }

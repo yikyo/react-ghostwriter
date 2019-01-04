@@ -18,8 +18,9 @@ class Posts extends Component<TProps> {
     return (
       <Post
         title={post.title}
-        author={post.author}
         content={post.content}
+        author={post.author}
+        tags={post.tags}
         date={post.date}
       />
     );

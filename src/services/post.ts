@@ -54,9 +54,10 @@ export default class PostService {
       }
 
       return {
-        author: 'yiKyo',
+        author: response.data.posts[0].primary_author.name,
         content: response.data.posts[0].html,
         date: response.data.posts[0].published_at,
+        tags: response.data.posts[0].primary_tag.name,
         title: response.data.posts[0].title,
       };
     });

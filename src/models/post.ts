@@ -7,6 +7,7 @@ export interface IPost {
     date: string;
     title: string;
     content: string;
+    tags: string;
   };
   list: {
     data: Array<{
@@ -28,6 +29,7 @@ export const post = createModel({
       author: '',
       content: '',
       date: '',
+      tags: '',
       title: '',
     },
     list: {

@@ -11,8 +11,8 @@ interface IProps {
 }
 
 const Post: React.SFC<IProps> = ({ author, title, content, date }) => (
-  <article className={Style.container}>
-    <header>
+  <article className={Style.article}>
+    <header className={Style.header}>
       <h1 className={Style.title}>{title}</h1>
       <p className={Style.date}>
         Published
@@ -26,6 +26,12 @@ const Post: React.SFC<IProps> = ({ author, title, content, date }) => (
       className={Style.content}
       dangerouslySetInnerHTML={{ __html: content }}
     />
+    <div className={Style.footer}>
+      <p className={Style.tags}>
+        <span>Tagged:</span>
+        <a href="/tag/espressobin/">Espressobin</a>
+      </p>
+    </div>
   </article>
 );
 
