@@ -2,7 +2,7 @@ import qs from 'query-string';
 import { Api } from '../constants';
 import { Axios } from '../helpers';
 
-export interface IPostServiceListParams {
+export interface IFetchPostListParams {
   page: string;
   limit: number;
 }
@@ -15,7 +15,7 @@ interface IPostItem {
 }
 
 export default class PostService {
-  public static list = (payload: IPostServiceListParams) => {
+  public static list = (payload: IFetchPostListParams) => {
     return Axios.get(`${Api.POSTS}&${qs.stringify(payload)}`).then(response => {
       const result = { pagination: {}, data: [] };
 
@@ -44,6 +44,21 @@ export default class PostService {
   };
 
   public static getByTitle = () => {
-    return Axios.get(`${Api.POSTS_BY_TITLE}`);
+    return Axios.get(`${Api.POSTS_BY_TITLE}`).then(response => {
+      if (
+        !response.data ||
+        !response.data.posts ||
+        !Array.isArray(response.data.posts)
+      ) {
+        return {};
+      }
+
+      return {
+        author: 'yiKyo',
+        content: response.data.posts[0].html,
+        date: response.data.posts[0].published_at,
+        title: response.data.posts[0].title,
+      };
+    });
   };
 }

@@ -1,7 +1,13 @@
 import { createModel } from '@rematch/core';
-import { IPostServiceListParams, PostService } from '../services';
+import { IFetchPostListParams, PostService } from '../services';
 
 export interface IPost {
+  item: {
+    author: string;
+    date: string;
+    title: string;
+    content: string;
+  };
   list: {
     data: Array<{
       id: string;
@@ -18,6 +24,12 @@ export interface IPost {
 
 export const post = createModel({
   state: {
+    item: {
+      author: '',
+      content: '',
+      date: '',
+      title: '',
+    },
     list: {
       data: [],
       pagination: {},
@@ -25,17 +37,25 @@ export const post = createModel({
   },
 
   reducers: {
+    updateItem: (state, payload) => {
+      const val = {};
+      Object.assign(val, state, { item: payload });
+      return val;
+    },
+
     updateList: (state, payload) => {
       const val = {};
-
       Object.assign(val, state, { list: payload });
-
       return val;
     },
   },
 
   effects: dispatch => ({
-    async fetchList(payload: IPostServiceListParams) {
+    async fetch() {
+      const data = await PostService.getByTitle();
+      dispatch.post.updateItem(data);
+    },
+    async fetchList(payload: IFetchPostListParams) {
       const data = await PostService.list(payload);
       dispatch.post.updateList(data);
     },

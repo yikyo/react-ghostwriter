@@ -1,0 +1,48 @@
+@import '../../assets/scss/_color.scss';
+.container {
+  margin: 0 40px;
+  .content {
+    a:hover {
+      padding: 0 0 2px;
+      border-bottom: 1px dotted $primary;
+    }
+  }
+  header {
+    padding: 0 0 80px;
+    margin: 0 0 50px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 6px solid $secondary;
+    .title {
+      margin: 15px 0;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: initial;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .date {
+      margin: 25px 0 0;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      color: $silver-chalice;
+      time {
+        margin: 0 4px;
+      }
+      .author a {
+        color: $silver-chalice;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+    &::after {
+      display: block;
+      width: 100px;
+      margin: 40px auto 0;
+      content: '';
+      border-bottom: 1px dotted $secondary;
+    }
+  }
+}
