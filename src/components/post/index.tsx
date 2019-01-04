@@ -1,6 +1,5 @@
+import format from 'date-fns/format';
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 import Style from './style.scss';
 
 interface IProps {
@@ -8,6 +7,7 @@ interface IProps {
   content: string;
   title: string;
   date: string;
+  tags: string;
 }
 
 const Post: React.SFC<IProps> = ({ author, title, content, date }) => (
@@ -16,9 +16,9 @@ const Post: React.SFC<IProps> = ({ author, title, content, date }) => (
       <h1 className={Style.title}>{title}</h1>
       <p className={Style.date}>
         Published
-        <time>April 14th 2018</time>
+        <time dateTime={date}>{format(date, 'MMMM Do YYYY')}</time>
         <strong className={Style.author}>
-          by <a href="/author/yikyo/">yiKyo</a>
+          by <a href={`/author/${author}/`}>{author}</a>
         </strong>
       </p>
     </header>
