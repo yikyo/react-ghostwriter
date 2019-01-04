@@ -1,6 +1,6 @@
 import Footer from './footer';
 import Header from './header';
 import Pagination from './pagination';
-import PostList from './post-list';
+import Posts from './posts';
 
-export { Header, Footer, PostList, Pagination };
+export { Header, Footer, Posts, Pagination };

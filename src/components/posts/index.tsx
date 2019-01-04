@@ -22,7 +22,7 @@ const PostList: React.SFC<IProps> = ({ posts, pagination }) => (
     <ol className={Style.postList}>
       {posts.map(elem => (
         <li key={elem.id} className={Style.post}>
-          <Link className={Style.link} to={elem.link}>
+          <Link className={Style.link} to={`/posts${elem.link}`}>
             <h4 className={Style.title}>{elem.title}</h4>/
             <time className={Style.date} dateTime={elem.date}>
               Published {format(elem.date, 'MMMM Do YYYY')}

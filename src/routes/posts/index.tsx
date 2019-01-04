@@ -1,7 +1,7 @@
 import qs from 'query-string';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { PostList } from '../../components';
+import { Posts as PostsComponent } from '../../components';
 import { Value } from '../../constants';
 import { TDispatch, TRootState } from '../../store';
 
@@ -38,7 +38,7 @@ class Posts extends Component<TProps> {
       posts: { data, pagination },
     } = this.props;
 
-    return <PostList posts={data} pagination={pagination} />;
+    return <PostsComponent posts={data} pagination={pagination} />;
   }
 }
 
